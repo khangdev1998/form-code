@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fontawesome-free-5.15.2-web/css/all.min.css">
+    <link rel="stylesheet" href="style2.css">
+    <title>Sign up - form</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        ::placeholder {
+            color: white;
+            font-size: 1.4rem;
+            font-style: italic;
+            opacity: 0.6;
+        }
+
+        .btn {
+            width: 100%;
+            height: 4.8rem;
+            border-radius: 22.5px;
+            /* margin-top: 40px; */
+            cursor: pointer;
+            background: #fff;
+            color: #9b59b6;
+            font-size: 1.7rem;
+            border: none;
+            outline: none;
+            font-weight: bold;
+            letter-spacing: 1px;     
+            position: relative;
+            overflow: hidden;
+            z-index: 999999999999;
+        }
+
+        .btn:hover {
+            color: #fff;
+        }
+
+        .btn::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: rgb(211,135,171);
+            background: linear-gradient(90deg, rgba(211,135,171,1) 23%, rgba(232,153,220,1) 100%);
+            position: absolute;
+            top: 0;
+            left: -100%;
+            transition: all .5s ease-in-out;
+            z-index: -2000000000;
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        
+        .col {
+            /* width: 50%; */
+        }
+
+        html {
+            font-size: 62.5%;
+            font-family: 'Mulish', sans-serif;
+        }
+
+        .col {
+            width: 100%;
+            margin-bottom: 28px;
+        }
+
+
+        #container {
+            display: flex;
+            min-height: 100vh;
+            overflow: hidden;
+            
+        }
+
+        #container .wallpaper {
+            width: 70%;
+           
+        }   
+
+        #container img {
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+            
+
+        }
+
+        #container .title-border {
+            font-size: 40px;
+            margin-bottom: 39px;
+            text-align: center;
+            color: #fff;
+            letter-spacing: 2px;
+            font-family: 'Architects Daughter', cursive;
+            position: relative;
+        }
+
+        .title-border::after {
+            content: "";
+            display: block;
+            background-image: url(sign.png);
+            background-repeat: no-repeat;
+            padding: 70px;
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            
+        }
+
+        #container .form {
+            background: #9b59b6;
+            width: 30%;
+            font-size: 1.8rem;
+            padding-top: 16.36vh;
+            padding-left: 4vw;
+            padding-right: 4vw;
+            padding-bottom: 2vw;
+            color: #fff;
+            
+            
+        }
+
+        .wrapper-input-icon {
+            position: relative;
+        }
+
+        .wrapper-input-icon[data-error] .input-form {
+            border-color: #fd677a;
+            color: #c92432;
+            background: #fff;
+        }
+
+        .wrapper-input-icon[data-error]::after {
+            content: attr(data-error);
+            font-size: 1.6rem;
+            margin-top: 10px;
+            font-style: italic;
+            display: block;
+        }
+
+        .form .input-form {
+            width: 100%;
+            height: 4.6rem;
+            padding: 12px;
+            background: #9b59b6;
+            border: 2px solid #f5cdd4;
+            border-radius: 6px;
+            outline: none;
+            font-size: 1.8rem;
+            color: #fff;
+            /* font-weight: bold; */
+            
+        }
+        
+        .form .icon-user, .icon-email, .icon-password {
+           position: absolute;
+           right: 16px; 
+           top: 0;
+           font-size: 1.8rem;
+           height: 100%;
+           display: flex;
+           align-items: center;
+           /* display: none; */
+        }
+
+        .form .text-form {
+            margin-bottom: 12px;
+        }
+
+        .form .footer-form {
+            margin-top: 50px;
+            text-align: center;                              
+        }
+
+        .form .text-footer {
+            font-size: 1.7rem;
+            margin-bottom: 22px;
+            /* color:#fab1a0; */
+        }
+
+        .form .icon-footer {
+            font-size: 2.2rem;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            width: 4.1rem;
+            height: 4.1rem;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 19px;    
+            color: #fff;
+
+        }
+
+        .form .margin-0 {
+            margin: 0;
+        }
+
+    
+        .form .icon-footer:hover {
+            background-color: #fff;
+            color: #9b59b6;
+            transition: 0.4s;
+        }
+
+        .form #user_error, #email_error, #pass_error {
+            display: none;
+            margin-top: 10px;
+            font-size: 1.5rem;
+            color: #fff;
+            background-color: #8854d0;
+            padding: 5px;
+            font-style: italic;
+            border-radius: 4px;
+        }
+
+        .icon-error {
+            margin-left: 6px;;
+        }
+
+        /* RESPONSIVE FOR LAPTOP - MÀN CHO LAPTOP-TEST */
+         @media (max-width: 1500px) {
+            #container .form {
+                padding-top: 1vw;
+                font-size: 1.5rem;
+            }
+        } 
+
+
+        /* testtttttt */
+        @media (max-width: 1280px) {
+            #container .form {
+                padding-top: 10vw;
+            }
+        }
+
+        /* RESPONSIVE FOR IPAD - MÀN CHO MÁY TỈNH BẢNG*/
+        @media (max-width: 1150px) {
+            #container {
+                flex-direction: column;
+            }
+
+            #container .wallpaper {
+                width: 100%;
+            }
+
+            #container .form {
+                width: 100%;
+                padding-top: 5.06vh;
+                padding-left: 20vw;
+                padding-right: 20vw;
+                padding-bottom: 14vw;
+            }
+        }
+
+        /* RESPONSIVE FOR MOBILE - MÀN CHO ĐIỆN THOẠI */
+        @media (max-width: 739px) {
+            #container .form {
+                padding-top: 5.04vh;
+                padding-left: 4vw;
+                padding-right: 4vw;
+            }
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <div class="wallpaper">
+            <img src="picture-1.jpg" alt="wallpaper-1">
+        </div>
+    
+        <div class="form">
+            <div class="form-content">
+                <h3 class="title-border">SIGN UP</h3>
+                <form action="page-1.html" name="form" onsubmit="return validated()">
+                    <div class="col">
+                            <p class="text-form">User name:</p>
+                                <div class="wrapper-input-icon">
+                                    <input class="input-form" type="text" name="user">
+                                    <i class="icon-user fas fa-user"></i>
+                                </div>
+                                <div id="user_error">The input value must be between 3-12 characters<i class="icon-error fas fa-exclamation-circle"></i></div>
+                            
+                    </div>
+    
+                    <div class="col">
+                        <p class="text-form">E-mail:</p>
+                        <div class="wrapper-input-icon">
+                            <input class="input-form" name="email" type="email">
+                            <i class="icon-email fas fa-envelope"></i>
+                        </div>
+                        <div id="email_error">You have not given a correct e-mail address<i class="icon-error fas fa-exclamation-circle"></i></div>
+                
+                    </div>
+    
+                    <div class="col">
+                        <p class="text-form">Password:</p>
+                        <div class="wrapper-input-icon">
+                            <input class="input-form" type="password" name="password">
+                            <i class="icon-password fas fa-lock"></i>
+                        </div>
+                        <div id="pass_error">The input value is shorter than 8 characters<i class="icon-error fas fa-exclamation-circle"></i></div>
+                    
+                    </div>
+                    <button class="btn">CREATE MY ACCOUNT</button>
+                </form>
+            </div>
+    
+            <div class="footer-form">
+                <p class="text-footer">Code by Khang Nguyễn</p>
+                <a href="https://www.facebook.com/khang171998" target="_blank">
+                    <i class="icon-footer fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/khangdev/" target="_blank">
+                    <i class="icon-footer fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCof3SA5S8tppAto_mtYmFfg" target="_blank">
+                    <i class="icon-footer fab fa-youtube"></i>
+                </a>
+                <a href="" onclick="myFuction()">
+                    <i class="icon-footer margin-0 fab fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+    </div> 
+
+    <script>
+        function myFuction() {
+            alert("ĐÉO CÓ, NĂM SAU LẬP  (^_^)")
+        }
+
+        // https://colorlib.com/etc/regform/colorlib-regform-24/
+
+        	//Validtion Code For Inputs
+
+            var email = document.forms['form']['email'];
+            var password = document.forms['form']['password'];
+            var user = document.forms['form']['user']
+
+            var user_error = document.getElementById('user_error');
+            var email_error = document.getElementById('email_error');
+            var pass_error = document.getElementById('pass_error');
+
+            user.addEventListener('textInput', user_Verify);
+            email.addEventListener('textInput', email_Verify);
+            password.addEventListener('textInput', pass_Verify);
+
+            function validated(){
+                
+                if (user.value.length < 9) {
+                    user.style.border = "2px solid #eb3b5a";
+                    user_error.style.display = "block";
+                    user.focus();
+                    return false;
+                }
+
+                if (email.value.length < 9) {
+                    email.style.border = "2px solid #eb3b5a";
+                    email_error.style.display = "block";
+                    email.focus();
+                    return false;
+                }
+
+                if (password.value.length < 6) {
+                    password.style.border = "2px solid #eb3b5a";
+                    pass_error.style.display = "block";
+                    password.focus();
+                    return false;
+                }
+
+            }
+
+            function user_Verify(){
+                if (user.value.length >= 12) {
+                    user.style.border = "2px solid #f5cdd4";
+                    user_error.style.display = "none";
+                    return true;
+                }
+            }
+
+            function email_Verify(){
+                if (email.value.length >= 8) {
+                    email.style.border = "2px solid #f5cdd4";
+                    email_error.style.display = "none";
+                    return true;
+                }
+            }
+            function pass_Verify(){
+                if (password.value.length >= 5) {
+                    password.style.border = "2px solid #f5cdd4";
+                    pass_error.style.display = "none";
+                    return true;
+                }
+            }
+
+
+    </script>
+</body>
+</html>
