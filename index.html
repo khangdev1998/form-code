@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="fontawesome-free-5.15.2-web/css/all.min.css">
     <link rel="stylesheet" href="style2.css">
+	<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <title>Sign up - form</title>
     <style>
         * {
@@ -95,7 +99,7 @@
             width: 100%;
             height: 100%;
             vertical-align: middle;
-            
+            pointer-events: none;
 
         }
 
@@ -291,12 +295,12 @@
     
         <div class="form">
             <div class="form-content">
-                <h3 class="title-border">SIGN UP</h3>
+                <h3 class="title-border animate__animated animate__rotateIn">SIGN UP</h3>
                 <form action="page-1.html" name="form" onsubmit="return validated()">
                     <div class="col">
                             <p class="text-form">User name:</p>
                                 <div class="wrapper-input-icon">
-                                    <input class="input-form" type="text" name="user">
+                                    <input class="input-form animate__animated animate__headShake" type="text" name="user">
                                     <i class="icon-user fas fa-user"></i>
                                 </div>
                                 <div id="user_error">The input value must be between 3-12 characters<i class="icon-error fas fa-exclamation-circle"></i></div>
@@ -306,7 +310,7 @@
                     <div class="col">
                         <p class="text-form">E-mail:</p>
                         <div class="wrapper-input-icon">
-                            <input class="input-form" name="email" type="email">
+                            <input class="input-form animate__animated animate__headShake" name="email" type="email">
                             <i class="icon-email fas fa-envelope"></i>
                         </div>
                         <div id="email_error">You have not given a correct e-mail address<i class="icon-error fas fa-exclamation-circle"></i></div>
@@ -316,13 +320,13 @@
                     <div class="col">
                         <p class="text-form">Password:</p>
                         <div class="wrapper-input-icon">
-                            <input class="input-form" type="password" name="password">
+                            <input class="input-form animate__animated animate__headShake" type="password" name="password">
                             <i class="icon-password fas fa-lock"></i>
                         </div>
                         <div id="pass_error">The input value is shorter than 8 characters<i class="icon-error fas fa-exclamation-circle"></i></div>
                     
                     </div>
-                    <button class="btn">CREATE MY ACCOUNT</button>
+                    <button class="btn animate__animated animate__backInRight">CREATE MY ACCOUNT</button>
                 </form>
             </div>
     
